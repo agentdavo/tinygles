@@ -1,7 +1,4 @@
-set(COMMON glu.c x11.c)
-
-link_libraries(GL X11 m)
-add_executable(texobj ${COMMON} texobj.c)
-add_executable(spin ${COMMON} spin.c)
-add_executable(gears ${COMMON} gears.c)
-add_executable(mech ${COMMON} mech.c)
+add_subdirectory(primitives)
+#add_subdirectory(gears)
+#add_subdirectory(spinning-cube)
+#add_subdirectory(dummy)

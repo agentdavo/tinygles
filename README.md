@@ -1,108 +1,72 @@
-TinyGLES (c) 2014 Ryan Hileman
+### TinyGLESfp - OpenGL ES 1.1 fixed point software renderer
 
-Based on TinyGL 0.4 (c) 1997-2002 Fabrice Bellard.
+Based on 
+- TinyGLES (c) 2014 Ryan Hileman
+- TinyGL 0.4 (c) 1997-2002 Fabrice Bellard
 
-General Description:
---------------------
 
-TinyGLES is a software OpenGL ES driver, intended for use
-with [glshim](https://github.com/lunixbochs/glshim).
+### General Description:
 
-The main features of TinyGLES are:
+TinyGLESfp is a software OpenGL ES driver intended for use on our RISCV32 core 'oclui'.
 
-- ABI-compatible with OpenGL ES
+      --------------------------------------------------------------
+      | GLfixed  |  32  | signed 2's complement S15.16 scaled integer|
+      --------------------------------------------------------------
+      | GLclampx |  32  | S15.16 scaled integer clamped to [0, 1]    |
+      --------------------------------------------------------------
 
-- Zlib-like licence for easy integration in commercial designs (read
-the LICENCE file).
 
-- Subset of GLX for easy testing with X Window.
+### Fixed point library:
 
-- OpenGL-like lighting.
+http://johnmcfarlane.github.io/fixed_point/
 
-- Complete OpenGL selection mode handling for object picking.
 
-- 16 bit Z buffer. 16/32 bit RGB rendering. High speed dithering to
-paletted 8 bits if needed.
+### tglAPI - GL ES 1.0 Fixed Point Compatibilty
 
-- Partially NEON-optimized.
+ - [ ] glAlphaFuncx (GLenum func, GLclampx ref)
+ - [ ] glClearColorx (GLclampx red, GLclampx green, GLclampx blue, GLclampx alpha)
+ - [ ] glClearDepthx (GLclampx depth)
+ - [ ] glColor4x (GLfixed red, GLfixed green, GLfixed blue, GLfixed alpha)
+ - [ ] glDepthRangex (GLclampx n, GLclampx f)
+ - [ ] glFogx (GLenum pname, GLfixed param)
+ - [ ] glFogxv (GLenum pname, const GLfixed *param)
+ - [ ] glFrustumx (GLfixed l, GLfixed r, GLfixed b, GLfixed t, GLfixed n, GLfixed f)
+ - [ ] glLightModelx (GLenum pname, GLfixed param)
+ - [ ] glLightModelxv (GLenum pname, const GLfixed *param)
+ - [ ] glLightx (GLenum light, GLenum pname, GLfixed param)
+ - [ ] glLightxv (GLenum light, GLenum pname, const GLfixed *params)
+ - [ ] glLineWidthx (GLfixed width)
+ - [ ] glLoadMatrixx (const GLfixed *m)
+ - [ ] glMaterialx (GLenum face, GLenum pname, GLfixed param)
+ - [ ] glMaterialxv (GLenum face, GLenum pname, const GLfixed *param)
+ - [ ] glMultMatrixx (const GLfixed *m)
+ - [ ] glMultiTexCoord4x (GLenum texture, GLfixed s, GLfixed t, GLfixed r, GLfixed q)
+ - [ ] glNormal3x (GLfixed nx, GLfixed ny, GLfixed nz)
+ - [ ] glOrthox (GLfixed l, GLfixed r, GLfixed b, GLfixed t, GLfixed n, GLfixed f)
+ - [ ] glPointSizex (GLfixed size)
+ - [ ] glPolygonOffsetx (GLfixed factor, GLfixed units)
+ - [ ] glRotatex (GLfixed angle, GLfixed x, GLfixed y, GLfixed z)
+ - [ ] glSampleCoveragex (GLclampx value, GLboolean invert)
+ - [ ] glScalex (GLfixed x, GLfixed y, GLfixed z)
+ - [ ] glTexEnvx (GLenum target, GLenum pname, GLfixed param)
+ - [ ] glTexEnvxv (GLenum target, GLenum pname, const GLfixed *params)
+ - [ ] glTexParameterx (GLenum target, GLenum pname, GLfixed param)
+ - [ ] glTranslatex (GLfixed x, GLfixed y, GLfixed z)
 
-- Fast Gouraud shadding optimized for 16 bit RGB.
 
-- Fast texture mapping capabilities, with perspective correction and
-texture objects.
+### tglAPI - GL ES 1.1 Fixed Point Compatibility
 
-- 32 bit float only arithmetic.
-
-- Very small: compiled code size of about 61 kB on ARM. The file
-  src/zfeatures.h can be used to remove some unused features from
-  TinyGLES.
-
-- C sources for GCC on 32/64 bit architectures.
-
-Examples:
----------
-
-I took three simple examples from the Mesa package to test the main
-functions of TinyGLES. They link against libGL, so you will need
-glshim to use them.
-
-- texobj illustrates the use of texture objects. Its shows the speed
-of TinyGLES in this case.
-
-- glutmech comes from the GLUT packages. It is much bigger and slower
-because it uses the lighting. I have just included some GLU
-functions and suppressed the GLUT related code to make it work. It
-shows the display list handling of TinyGL in particular. You can look
-at the source code to learn the keys to move the robot. The key 't'
-toggles between shaded rendering and wire frame.
-
-Architecture:
--------------
-
-TinyGLES is made up four main modules:
-
-- Mathematical routines (zmath).
-
-- OpenGL-like emulation (zgl).
-
-- Z buffer and rasterisation (zbuffer).
-
-- GLX interface (zglx).
+ - [ ] glClipPlanex (GLenum plane, const GLfixed *equation)
+ - [ ] glGetClipPlanex (GLenum plane, GLfixed *equation)
+ - [ ] glGetFixedv (GLenum pname, GLfixed *params)
+ - [ ] glGetLightxv (GLenum light, GLenum pname, GLfixed *params)
+ - [ ] glGetMaterialxv (GLenum face, GLenum pname, GLfixed *params)
+ - [ ] glGetTexEnvxv (GLenum target, GLenum pname, GLfixed *params)
+ - [ ] glGetTexParameterxv (GLenum target, GLenum pname, GLfixed *params)
+ - [ ] glPointParameterx (GLenum pname, GLfixed param)
+ - [ ] glPointParameterxv (GLenum pname, const GLfixed *params)
+ - [ ] glPointSizePointerOES (GLenum type, GLsizei stride, const GLvoid *pointer)
+ - [ ] glTexParameterxv (GLenum target, GLenum pname, const GLfixed *params)
 
 Notes - limitations:
 --------------------
-
-- See the file 'LIMITATIONS' to see the current functions supported by the API.
-
-- The multithreading could be easily implemented since no global state
-is maintainted. The library gets the current context with a function
-which can be modified.
-
-- The lighting is not very fast. I supposed that in most games the
-lighting is computed by the 3D engine.
-
-- Some changes are needed for 64 bit pointers for the handling of
-arrays of float with the GLParam union.
-
-- List sharing is partialy supported in the source, but not by the
-current TinyGLX implementation (is it really useful ?).
-
-- No user clipping planes are supported.
-
-- No color index mode (no longer useful!)
-
-- The mipmapping is not implemented.
-
-- The perspective correction in the mapping code does not use W but
-1/Z. In any 'normal scene' it should work.
-
-- The resizing of the viewport in TinyGLX ensures that the width and
-the height are multiples of 4. This is not optimal because some pixels
-of the window may not be refreshed.
-
-Why?
------
-
-TinyGLES was developed because some operations on a mobile GPU (namely
-texture uploads) can be slower than rendering the entire scene yourself
-in software.

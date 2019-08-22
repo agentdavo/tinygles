@@ -1,0 +1,63 @@
+set(GLES_SRC
+    init.cpp
+    api.cpp
+    arrays.cpp
+    blend.cpp
+    clear.cpp
+    clip.cpp
+    enable.cpp
+    error.cpp
+    fog.cpp
+    get.cpp
+    gl_str.c
+    glx.cpp
+    image_util.cpp
+    light.cpp
+    matrix.cpp
+    misc.cpp
+    specbuf.cpp
+    stub.cpp
+    tack.c
+    texture.cpp
+    vertex.cpp
+    zbuffer.cpp
+    zdither.cpp
+    zline.cpp
+    ztriangle.cpp
+    zmath.cpp
+    context.cpp
+    fixed_point_operations.cpp
+    math_tests.cpp
+    matrix_utils.cpp
+    )
+
+set(GLES_HDR
+    mygl.h
+    api.hpp
+    arrays.hpp
+    image_util.hpp
+    fixed_point.hpp
+    fixed_point_type.hpp
+    fixed_point_operations.hpp
+    math_tests.hpp
+    gl.h
+    get.hpp
+    glx.hpp
+    gl_str.h
+    light.hpp
+    matrix.hpp
+    misc.hpp
+    specbuf.hpp
+    tack.h
+    vertex.cpp
+    vertex.hpp
+    zbuffer.hpp
+    zgl.hpp
+    zmath.hpp
+    clear.hpp
+    matrix_utils.hpp
+    )
+
+add_library(GLESv1_CM STATIC ${GLES_SRC} ${GLES_HDR})
+target_link_libraries(GLESv1_CM X11 Xext)
+
