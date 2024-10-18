@@ -1,0 +1,91 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "cmake.configureOnOpen": true,
+        "files.associations": {}
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.cpptools",              // C/C++ support
+            "ms-vscode.cpptools-themes",       // C/C++ theme
+            "ms-vscode.cmake-tools"            // CMake support
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build",
+                "type": "shell",
+                "command": "cmake",
+                "args": [
+                    "--build", "${workspaceFolder}/build"  // Build task for the 'build' directory
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"            // Set current working directory for CMake
+                },
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "problemMatcher": {
+                    "owner": "cpp",
+                    "fileLocation": ["relative", "${workspaceFolder}"],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            },
+            {
+                "label": "Build and Run",
+                "type": "shell",
+                "command": "${workspaceFolder}/build/bin/tinygles", // Adjust path to your binary
+                "group": {
+                    "kind": "test",
+                    "isDefault": false
+                },
+                "dependsOn": "Build"
+            }
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Debug with gdb",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/build/bin/tinygles",  // Path to executable
+                "args": [],
+                "cwd": "${workspaceFolder}",
+                "preLaunchTask": "Build",
+                "stopAtEntry": false,
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb",
+                "linux": {
+                    "MIMode": "gdb",
+                    "miDebuggerPath": "/usr/bin/gdb"
+                },
+                "osx": {
+                    "MIMode": "lldb"
+                },
+                "windows": {
+                    "MIMode": "gdb",
+                    "miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
+                }
+            }
+        ]
+    }
+}
