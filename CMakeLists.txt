@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 project(tinygles)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # Set output directories
 set(BIN_DIR ${CMAKE_BINARY_DIR}/bin)
 set(LIB_DIR ${CMAKE_BINARY_DIR}/lib)

@@ -43,28 +43,29 @@ void glGetFloatv(GLenum pname, tGLfixed *v) {
     int i;
     int mnr = 0; /* just a trick to return the correct matrix */
     GLContext *c = gl_get_context();
+
     switch (pname) {
         case GL_CURRENT_COLOR: {
-            tGLfixed *color = (tGLfixed*)c->current.color.v;
-            *v++ = *color++;
-            *v++ = *color++;
-            *v++ = *color++;
-            *v++ = *color++;
+            // Access the color components directly
+            *v++ = c->current.color.X;
+            *v++ = c->current.color.Y;
+            *v++ = c->current.color.Z;
+            *v++ = c->current.color.W;
             break;
         }
         case GL_CURRENT_NORMAL: {
-            tGLfixed *normal = (tGLfixed*)c->current.normal.v;
-            *v++ = *normal++;
-            *v++ = *normal++;
-            *v++ = *normal++;
+            // Access the normal components directly
+            *v++ = c->current.normal.X;
+            *v++ = c->current.normal.Y;
+            *v++ = c->current.normal.Z;
             break;
         }
         case GL_CURRENT_TEXTURE_COORDS: {
-            tGLfixed *tex_coord = (tGLfixed*)c->current.tex_coord.v;
-            *v++ = *tex_coord++;
-            *v++ = *tex_coord++;
-            *v++ = *tex_coord++;
-            *v++ = *tex_coord++;
+            // Access the texture coordinate components directly
+            *v++ = c->current.tex_coord.X;
+            *v++ = c->current.tex_coord.Y;
+            *v++ = c->current.tex_coord.Z;
+            *v++ = c->current.tex_coord.W;
             break;
         }
         case GL_TEXTURE_MATRIX:
@@ -72,36 +73,29 @@ void glGetFloatv(GLenum pname, tGLfixed *v) {
         case GL_PROJECTION_MATRIX:
             mnr++;
             std::cout<<"fixme: the function glGetFloatv(GL_PROJECTION_MATRIX) swap matrix index [3][2] and [2][3], see tests"<<std::endl;
-        case GL_MODELVIEW_MATRIX:
-            {
-                tGLfixed *p = &c->matrix.stack_ptr[mnr]->m[0][0];
-                for (i = 0; i < 4; i++) {
-                    *v++ = p[0];
-                    *v++ = p[4];
-                    *v++ = p[8];
-                    *v++ = p[12];
-                    p++;
-                }
+        case GL_MODELVIEW_MATRIX: {
+            tGLfixed *p = &c->matrix.stack_ptr[mnr]->m[0][0];
+            for (i = 0; i < 4; i++) {
+                *v++ = p[0];
+                *v++ = p[4];
+                *v++ = p[8];
+                *v++ = p[12];
+                p++;
             }
             break;
+        }
         case GL_LINE_WIDTH:
             *v = 1.0f;
             break;
-// todo(alpi): missing GL_LINE_WIDTH_RANGE
-        //    case GL_LINE_WIDTH_RANGE:
-//        v[0] = v[1] = 1.0f;
-//        break;
         case GL_POINT_SIZE:
             *v = 1.0f;
             break;
-// todo(alpi): missing GL_POINT_SIZE_RANGE
-        //    case GL_POINT_SIZE_RANGE:
-//        v[0] = v[1] = 1.0f;
         default:
             fprintf(stderr, "warning: unknown pname in glGetFloatv(): %x\n", pname);
             break;
     }
 }
+
 
 void glGetBooleanv(GLenum pname, GLboolean *v) {
     fprintf(stderr, "warning: unknown pname in glGetBooleanv(): %x\n", pname);

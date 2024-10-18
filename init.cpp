@@ -123,10 +123,10 @@ void glInit(void *zbuffer1) {
     c->cull_face_enabled = 0;
 
     /* clear */
-    c->clear.color.v[0] = 0;
-    c->clear.color.v[1] = 0;
-    c->clear.color.v[2] = 0;
-    c->clear.color.v[3] = 0;
+    c->clear.color.X = 0;
+    c->clear.color.Y = 0;
+    c->clear.color.Z = 0;
+    c->clear.color.W = 0;
     c->clear.depth = 0;
 
     /* matrix */

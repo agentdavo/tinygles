@@ -22,9 +22,9 @@ void gl_transform_to_viewport(GLContext *c, GLVertex *v) {
     v->zp.z = (int)(v->pc.Z * winv * c->viewport.scale.Z + c->viewport.trans.Z);
     /* color */
     if (c->light.enabled) {
-        v->zp.r = (int)(v->color.v[0] * (ZB_POINT_RED_MAX - ZB_POINT_RED_MIN) + ZB_POINT_RED_MIN);
-        v->zp.g = (int)(v->color.v[1] * (ZB_POINT_GREEN_MAX - ZB_POINT_GREEN_MIN) + ZB_POINT_GREEN_MIN);
-        v->zp.b = (int)(v->color.v[2] * (ZB_POINT_BLUE_MAX - ZB_POINT_BLUE_MIN) + ZB_POINT_BLUE_MIN);
+        v->zp.r = (int)(v->color.X * (ZB_POINT_RED_MAX - ZB_POINT_RED_MIN) + ZB_POINT_RED_MIN);
+        v->zp.g = (int)(v->color.Y * (ZB_POINT_GREEN_MAX - ZB_POINT_GREEN_MIN) + ZB_POINT_GREEN_MIN);
+        v->zp.b = (int)(v->color.Z * (ZB_POINT_BLUE_MAX - ZB_POINT_BLUE_MIN) + ZB_POINT_BLUE_MIN);
     } else {
         /* no need to convert to integer if no lighting : take current color */
         v->zp.r = c->current.longcolor[0];
@@ -56,13 +56,13 @@ static inline void interpolate(GLVertex *q, GLVertex *p0, GLVertex *p1, tGLfixed
     q->pc.Z=p0->pc.Z+(p1->pc.Z-p0->pc.Z)*t;
     q->pc.W=p0->pc.W+(p1->pc.W-p0->pc.W)*t;
 
-    q->color.v[0] = p0->color.v[0] + (p1->color.v[0] - p0->color.v[0]) * t;
-    q->color.v[1] = p0->color.v[1] + (p1->color.v[1] - p0->color.v[1]) * t;
-    q->color.v[2] = p0->color.v[2] + (p1->color.v[2] - p0->color.v[2]) * t;
+    q->color.X = p0->color.X + (p1->color.X - p0->color.X) * t;
+    q->color.Y = p0->color.Y + (p1->color.Y - p0->color.Y) * t;
+    q->color.Z = p0->color.Z + (p1->color.Z - p0->color.Z) * t;
 }
 
 /*
- * Line Clipping 
+ * Line Clipping
  */
 
 /* Line Clipping algorithm from 'Computer Graphics', Principles and
@@ -114,7 +114,7 @@ void gl_draw_line(GLContext *c, GLVertex *p1, GLVertex *p2) {
                 ClipLine1(-dx+dw, x1-w1, &tmin, &tmax) &&
                 ClipLine1(dy+dw, -y1-w1, &tmin, &tmax) &&
                 ClipLine1(-dy+dw, y1-w1, &tmin, &tmax) &&
-                ClipLine1(dz+dw, -z1-w1, &tmin, &tmax) && 
+                ClipLine1(dz+dw, -z1-w1, &tmin, &tmax) &&
                 ClipLine1(-dz+dw, z1-w1, &tmin, &tmax)) {
 
             interpolate(&q1, p1, p2, tmin);
@@ -130,7 +130,7 @@ void gl_draw_line(GLContext *c, GLVertex *p1, GLVertex *p2) {
     }
 }
 
-	 
+
 /* triangle */
 
 /*
@@ -139,9 +139,9 @@ void gl_draw_line(GLContext *c, GLVertex *p1, GLVertex *p2) {
 
 /* We clip the segment [a,b] against the 6 planes of the normal volume.
  * We compute the point 'c' of intersection and the value of the parameter 't'
- * of the intersection if x=a+t(b-a). 
+ * of the intersection if x=a+t(b-a).
  */
-	 
+
 #define clip_func(name, sign, dir, dir1, dir2) \
 static tGLfixed name(V4 *c, V4 *a, V4 *b) {\
     tGLfixed t, dX, dY, dZ, dW, den;\
@@ -181,13 +181,13 @@ tGLfixed (*clip_proc[6])(V4 *, V4 *, V4 *)=  {
 
 static inline void updateTmp(GLContext *c, GLVertex *q, GLVertex *p0, GLVertex *p1, tGLfixed t) {
     if (c->current_shade_model == GL_SMOOTH) {
-        q->color.v[0] = p0->color.v[0] + (p1->color.v[0] - p0->color.v[0]) * t;
-        q->color.v[1] = p0->color.v[1] + (p1->color.v[1] - p0->color.v[1]) * t;
-        q->color.v[2] = p0->color.v[2] + (p1->color.v[2] - p0->color.v[2]) * t;
+        q->color.X = p0->color.X + (p1->color.X - p0->color.X) * t;
+        q->color.Y = p0->color.Y + (p1->color.Y - p0->color.Y) * t;
+        q->color.Z = p0->color.Z + (p1->color.Z - p0->color.Z) * t;
     } else {
-        q->color.v[0] = p0->color.v[0];
-        q->color.v[1] = p0->color.v[1];
-        q->color.v[2] = p0->color.v[2];
+        q->color.X = p0->color.X;
+        q->color.Y = p0->color.Y;
+        q->color.Z = p0->color.Z;
     }
 
     if (c->texture.enabled_2d) {
@@ -286,7 +286,7 @@ static void gl_draw_triangle_clip(GLContext *c, GLVertex *p0, GLVertex *p1, GLVe
         clip_mask = 1 << clip_bit;
         co1 = (cc[0] ^ cc[1] ^ cc[2]) & clip_mask;
 
-        if (co1)  { 
+        if (co1)  {
             /* one point outside */
 
             if (cc[0] & clip_mask) { q[0] = p0; q[1] = p1; q[2] = p2; }
@@ -312,7 +312,7 @@ static void gl_draw_triangle_clip(GLContext *c, GLVertex *p0, GLVertex *p1, GLVe
             /* two points outside */
 
             if ((cc[0] & clip_mask) == 0) { q[0] = p0; q[1] = p1; q[2] = p2; }
-            else if ((cc[1] & clip_mask) == 0) { q[0] = p1; q[1] = p2; q[2] = p0; } 
+            else if ((cc[1] & clip_mask) == 0) { q[0] = p1; q[1] = p2; q[2] = p0; }
             else { q[0] = p2; q[1] = p0; q[2] = p1; }
 
             tt = clip_proc[clip_bit](&tmp1.pc, &q[0]->pc, &q[1]->pc);
@@ -348,7 +348,7 @@ void gl_draw_triangle_fill(GLContext *c, GLVertex *p0, GLVertex *p1, GLVertex *p
         count_triangles++;
     }
 #endif
-    
+
     if (c->texture.enabled_2d) {
 #ifdef PROFILE
         count_triangles_textured++;
@@ -362,7 +362,7 @@ void gl_draw_triangle_fill(GLContext *c, GLVertex *p0, GLVertex *p1, GLVertex *p
     }
 }
 
-/* Render a clipped triangle in line mode */  
+/* Render a clipped triangle in line mode */
 
 void gl_draw_triangle_line(GLContext *c, GLVertex *p0, GLVertex *p1, GLVertex *p2) {
     if (c->depth_test) {

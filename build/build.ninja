@@ -51,70 +51,70 @@ build cmake_object_order_depends_target_tinygles: phony || CMakeFiles/tinygles.d
 
 build CMakeFiles/tinygles.dir/init.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/init.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/init.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/api.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/api.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/api.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/arrays.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/arrays.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/arrays.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/blend.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/blend.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/blend.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/clear.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/clear.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/clear.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/clip.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/clip.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/clip.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/enable.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/enable.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/enable.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/error.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/error.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/error.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/fog.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/fog.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/fog.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/get.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/get.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/get.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
@@ -128,49 +128,49 @@ build CMakeFiles/tinygles.dir/gl_str.c.o: C_COMPILER__tinygles_Debug /home/david
 
 build CMakeFiles/tinygles.dir/glx.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/glx.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/glx.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/image_util.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/image_util.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/image_util.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/light.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/light.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/light.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/matrix.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/matrix.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/matrix.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/misc.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/misc.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/misc.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/specbuf.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/specbuf.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/specbuf.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/stub.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/stub.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/stub.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
@@ -184,91 +184,91 @@ build CMakeFiles/tinygles.dir/tack.c.o: C_COMPILER__tinygles_Debug /home/davidsm
 
 build CMakeFiles/tinygles.dir/texture.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/texture.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/texture.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/vertex.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/vertex.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/vertex.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/zbuffer.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/zbuffer.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/zbuffer.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/zdither.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/zdither.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/zdither.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/zline.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/zline.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/zline.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/ztriangle.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/ztriangle.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/ztriangle.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/zmath.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/zmath.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/zmath.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/context.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/context.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/context.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/fixed_point_operations.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/fixed_point_operations.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/fixed_point_operations.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/math_tests.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/math_tests.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/math_tests.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/matrix_utils.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/matrix_utils.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/matrix_utils.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/x11.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/x11.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/x11.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
 
 build CMakeFiles/tinygles.dir/main.cpp.o: CXX_COMPILER__tinygles_Debug /home/davidsmith/tinygles/main.cpp || cmake_object_order_depends_target_tinygles
   DEP_FILE = CMakeFiles/tinygles.dir/main.cpp.o.d
-  FLAGS = -g
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/davidsmith/tinygles/include
   OBJECT_DIR = CMakeFiles/tinygles.dir
   OBJECT_FILE_DIR = CMakeFiles/tinygles.dir
