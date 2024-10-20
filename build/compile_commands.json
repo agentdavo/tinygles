@@ -1,162 +1,172 @@
 [
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/init.cpp.o -c /home/davidsmith/tinygles/init.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/init.cpp.o -c /home/davidsmith/tinygles/init.cpp",
   "file": "/home/davidsmith/tinygles/init.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/api.cpp.o -c /home/davidsmith/tinygles/api.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/api.cpp.o -c /home/davidsmith/tinygles/api.cpp",
   "file": "/home/davidsmith/tinygles/api.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/arrays.cpp.o -c /home/davidsmith/tinygles/arrays.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/arrays.cpp.o -c /home/davidsmith/tinygles/arrays.cpp",
   "file": "/home/davidsmith/tinygles/arrays.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/blend.cpp.o -c /home/davidsmith/tinygles/blend.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/blend.cpp.o -c /home/davidsmith/tinygles/blend.cpp",
   "file": "/home/davidsmith/tinygles/blend.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/clear.cpp.o -c /home/davidsmith/tinygles/clear.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/clear.cpp.o -c /home/davidsmith/tinygles/clear.cpp",
   "file": "/home/davidsmith/tinygles/clear.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/clip.cpp.o -c /home/davidsmith/tinygles/clip.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/clip.cpp.o -c /home/davidsmith/tinygles/clip.cpp",
   "file": "/home/davidsmith/tinygles/clip.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/enable.cpp.o -c /home/davidsmith/tinygles/enable.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/enable.cpp.o -c /home/davidsmith/tinygles/enable.cpp",
   "file": "/home/davidsmith/tinygles/enable.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/error.cpp.o -c /home/davidsmith/tinygles/error.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/error.cpp.o -c /home/davidsmith/tinygles/error.cpp",
   "file": "/home/davidsmith/tinygles/error.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/fog.cpp.o -c /home/davidsmith/tinygles/fog.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/fog.cpp.o -c /home/davidsmith/tinygles/fog.cpp",
   "file": "/home/davidsmith/tinygles/fog.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/get.cpp.o -c /home/davidsmith/tinygles/get.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/get.cpp.o -c /home/davidsmith/tinygles/get.cpp",
   "file": "/home/davidsmith/tinygles/get.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/gcc-12 -I/home/davidsmith/tinygles/include -g -o CMakeFiles/tinygles.dir/gl_str.c.o -c /home/davidsmith/tinygles/gl_str.c",
+  "command": "/usr/bin/gcc-12 -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -o CMakeFiles/tinygles.dir/gl_str.c.o -c /home/davidsmith/tinygles/gl_str.c",
   "file": "/home/davidsmith/tinygles/gl_str.c"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/glx.cpp.o -c /home/davidsmith/tinygles/glx.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/glx.cpp.o -c /home/davidsmith/tinygles/glx.cpp",
   "file": "/home/davidsmith/tinygles/glx.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/image_util.cpp.o -c /home/davidsmith/tinygles/image_util.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/image_util.cpp.o -c /home/davidsmith/tinygles/image_util.cpp",
   "file": "/home/davidsmith/tinygles/image_util.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/light.cpp.o -c /home/davidsmith/tinygles/light.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/light.cpp.o -c /home/davidsmith/tinygles/light.cpp",
   "file": "/home/davidsmith/tinygles/light.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/matrix.cpp.o -c /home/davidsmith/tinygles/matrix.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/matrix.cpp.o -c /home/davidsmith/tinygles/matrix.cpp",
   "file": "/home/davidsmith/tinygles/matrix.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/misc.cpp.o -c /home/davidsmith/tinygles/misc.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/misc.cpp.o -c /home/davidsmith/tinygles/misc.cpp",
   "file": "/home/davidsmith/tinygles/misc.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/specbuf.cpp.o -c /home/davidsmith/tinygles/specbuf.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/specbuf.cpp.o -c /home/davidsmith/tinygles/specbuf.cpp",
   "file": "/home/davidsmith/tinygles/specbuf.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/stub.cpp.o -c /home/davidsmith/tinygles/stub.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/stub.cpp.o -c /home/davidsmith/tinygles/stub.cpp",
   "file": "/home/davidsmith/tinygles/stub.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/gcc-12 -I/home/davidsmith/tinygles/include -g -o CMakeFiles/tinygles.dir/tack.c.o -c /home/davidsmith/tinygles/tack.c",
+  "command": "/usr/bin/gcc-12 -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -o CMakeFiles/tinygles.dir/tack.c.o -c /home/davidsmith/tinygles/tack.c",
   "file": "/home/davidsmith/tinygles/tack.c"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/texture.cpp.o -c /home/davidsmith/tinygles/texture.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/texture.cpp.o -c /home/davidsmith/tinygles/texture.cpp",
   "file": "/home/davidsmith/tinygles/texture.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/vertex.cpp.o -c /home/davidsmith/tinygles/vertex.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/vertex.cpp.o -c /home/davidsmith/tinygles/vertex.cpp",
   "file": "/home/davidsmith/tinygles/vertex.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/zbuffer.cpp.o -c /home/davidsmith/tinygles/zbuffer.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/zbuffer.cpp.o -c /home/davidsmith/tinygles/zbuffer.cpp",
   "file": "/home/davidsmith/tinygles/zbuffer.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/zdither.cpp.o -c /home/davidsmith/tinygles/zdither.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/zdither.cpp.o -c /home/davidsmith/tinygles/zdither.cpp",
   "file": "/home/davidsmith/tinygles/zdither.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/zline.cpp.o -c /home/davidsmith/tinygles/zline.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/zline.cpp.o -c /home/davidsmith/tinygles/zline.cpp",
   "file": "/home/davidsmith/tinygles/zline.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/ztriangle.cpp.o -c /home/davidsmith/tinygles/ztriangle.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/ztriangle.cpp.o -c /home/davidsmith/tinygles/ztriangle.cpp",
   "file": "/home/davidsmith/tinygles/ztriangle.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/zmath.cpp.o -c /home/davidsmith/tinygles/zmath.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/zmath.cpp.o -c /home/davidsmith/tinygles/zmath.cpp",
   "file": "/home/davidsmith/tinygles/zmath.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/context.cpp.o -c /home/davidsmith/tinygles/context.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/context.cpp.o -c /home/davidsmith/tinygles/context.cpp",
   "file": "/home/davidsmith/tinygles/context.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/fixed_point_operations.cpp.o -c /home/davidsmith/tinygles/fixed_point_operations.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/fixed_point_operations.cpp.o -c /home/davidsmith/tinygles/fixed_point_operations.cpp",
   "file": "/home/davidsmith/tinygles/fixed_point_operations.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/math_tests.cpp.o -c /home/davidsmith/tinygles/math_tests.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/math_tests.cpp.o -c /home/davidsmith/tinygles/math_tests.cpp",
   "file": "/home/davidsmith/tinygles/math_tests.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/matrix_utils.cpp.o -c /home/davidsmith/tinygles/matrix_utils.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/matrix_utils.cpp.o -c /home/davidsmith/tinygles/matrix_utils.cpp",
   "file": "/home/davidsmith/tinygles/matrix_utils.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/x11.cpp.o -c /home/davidsmith/tinygles/x11.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/x11.cpp.o -c /home/davidsmith/tinygles/x11.cpp",
   "file": "/home/davidsmith/tinygles/x11.cpp"
 },
 {
   "directory": "/home/davidsmith/tinygles/build",
-  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -std=gnu++17 -o CMakeFiles/tinygles.dir/main.cpp.o -c /home/davidsmith/tinygles/main.cpp",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/text.cpp.o -c /home/davidsmith/tinygles/text.cpp",
+  "file": "/home/davidsmith/tinygles/text.cpp"
+},
+{
+  "directory": "/home/davidsmith/tinygles/build",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/debug.cpp.o -c /home/davidsmith/tinygles/debug.cpp",
+  "file": "/home/davidsmith/tinygles/debug.cpp"
+},
+{
+  "directory": "/home/davidsmith/tinygles/build",
+  "command": "/usr/bin/c++ -I/home/davidsmith/tinygles/include -g -Wall -Wextra -Werror -std=gnu++17 -o CMakeFiles/tinygles.dir/main.cpp.o -c /home/davidsmith/tinygles/main.cpp",
   "file": "/home/davidsmith/tinygles/main.cpp"
 }
 ]

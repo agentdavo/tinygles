@@ -301,7 +301,14 @@ namespace fp
     /* Create a new V4 vector */
     V4 gl_V4_New(tGLfixed x, tGLfixed y, tGLfixed z, tGLfixed w)
     {
-
+        return {x, y, z, w}; // Direct initialization
     }
+
+    void V4_to_V3(V3 &v3, const V4 &v4) {
+        v3.X = v4.X;
+        v3.Y = v4.Y;
+        v3.Z = v4.Z;
+    }
+
 
 } // namespace fp

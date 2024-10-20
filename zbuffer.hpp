@@ -31,7 +31,12 @@
 
 #define RGB_TO_PIXEL(r, g, b) \
   ((((r) << 8) & 0xff0000) | ((g) & 0xff00) | ((b) >> 8))
-typedef unsigned int PIXEL;
+
+#define RGB32_TO_RGB16(v) \
+  (((v >> 8) & 0xf800) | (((v) >> 5) & 0x07e0) | (((v) & 0xff) >> 3))
+
+typedef uint32_t PIXEL;
+
 #define PSZB 4
 #define PSZSH 5
 
@@ -73,6 +78,7 @@ void ZB_close(ZBuffer *zb);
 
 void ZB_resize(ZBuffer *zb, void *frame_buffer, int xsize, int ysize);
 void ZB_clear(ZBuffer *zb, int clear_z, int z, int clear_color, int r, int g, int b);
+
 /* linesize is in BYTES */
 void ZB_copyFrameBuffer(ZBuffer *zb, void *buf, int linesize);
 

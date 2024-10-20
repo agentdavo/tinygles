@@ -47,6 +47,8 @@ set(GLES_SRC
     math_tests.cpp
     matrix_utils.cpp
     x11.cpp
+    text.cpp
+    debug.cpp
     main.cpp
 )
 
@@ -75,6 +77,8 @@ set(GLES_HDR
     zmath.hpp
     clear.hpp
     matrix_utils.hpp
+    text.hpp
+    debug.hpp
     x11.hpp
 )
 
@@ -108,3 +112,14 @@ endif()
 # Optionally, link to pthreads if needed
 find_package(Threads REQUIRED)
 target_link_libraries(tinygles PRIVATE Threads::Threads)
+
+# ----------------------- Add Compiler Warning Flags -----------------------
+
+# Enable warnings and treat them as errors
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(tinygles PRIVATE -Wall -Wextra -Werror)
+elseif (MSVC)
+    target_compile_options(tinygles PRIVATE /W4 /WX)
+endif()
+
+# --------------------------------------------------------------------------

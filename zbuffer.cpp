@@ -2,10 +2,12 @@
  * Z buffer: 16 bits Z / 16 bits color
  *
  */
+#include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+#include <unistd.h>  // For sysconf to get the number of cores
 #include "zbuffer.hpp"
 
 namespace fp {
@@ -100,105 +102,131 @@ void ZB_resize(ZBuffer * zb, void *frame_buffer, int xsize, int ysize) {
     }
 }
 
-static void ZB_copyBuffer(ZBuffer * zb, void *buf, int linesize) {
-    unsigned char *p1;
-    PIXEL *q;
-    int y, n;
+// Structure to pass arguments to each thread
+typedef struct {
+    ZBuffer *zb;
+    uint8_t *buf;  // Use uint8_t for byte-level access
+    int linesize;
+    int startY;  // Starting line for this thread
+    int endY;    // Ending line for this thread
+} ThreadData;
 
-    q = zb->pbuf;
-    p1 = (unsigned char*)buf;
-    n = zb->xsize * PSZB;
-    for (y = 0; y < zb->ysize; y++) {
-        memcpy(p1, q, n);
-        p1 += linesize;
-        q = (PIXEL *)((char *)q + zb->linesize);
+// Thread function for copying RGBA framebuffer
+static void* ZB_copy_FrameBufferRGBA_thread(void* arg) {
+    ThreadData *data = (ThreadData*)arg;
+    ZBuffer *zb = data->zb;
+    uint8_t *p1 = data->buf + data->startY * data->linesize;  // Buffer for each thread
+    PIXEL *q = (PIXEL*)((uint8_t*)zb->pbuf + data->startY * zb->linesize); // Pointer to the zbuffer's pixel buffer
+
+    int n = zb->xsize * PSZB;  // Number of bytes per scanline
+
+    for (int y = data->startY; y < data->endY; y++) {
+        memcpy(p1, q, n);  // Copy each scanline
+        p1 += data->linesize;  // Move to the next line in the destination buffer
+        q = (PIXEL*)((uint8_t*)q + zb->linesize);  // Move to the next line in the source buffer
+    }
+
+    return NULL;
+}
+
+void ZB_copy_FrameBufferRGBA(ZBuffer *zb, void *buf, int linesize) {
+    int numCores = sysconf(_SC_NPROCESSORS_ONLN);  // Get number of CPU cores
+    int numThreads = numCores - 1;  // Leave 1 core for the main thread
+
+    if (numThreads <= 0) {
+        numThreads = 1;  // Use at least 1 thread
+    }
+
+    pthread_t threads[numThreads];
+    ThreadData threadData[numThreads];
+
+    int linesPerThread = zb->ysize / numThreads;  // Divide the work among threads
+    int remainingLines = zb->ysize % numThreads;  // Handle any remaining lines
+
+    // Launch threads
+    for (int i = 0; i < numThreads; i++) {
+        threadData[i].zb = zb;
+        threadData[i].buf = (uint8_t*)buf;
+        threadData[i].linesize = linesize;
+        threadData[i].startY = i * linesPerThread;
+        threadData[i].endY = threadData[i].startY + linesPerThread;
+
+        if (i == numThreads - 1) {
+            threadData[i].endY += remainingLines;  // Last thread handles remaining lines
+        }
+
+        pthread_create(&threads[i], NULL, ZB_copy_FrameBufferRGBA_thread, &threadData[i]);
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < numThreads; i++) {
+        pthread_join(threads[i], NULL);
     }
 }
 
-#define RGB32_TO_RGB16(v) \
-  (((v >> 8) & 0xf800) | (((v) >> 5) & 0x07e0) | (((v) & 0xff) >> 3))
+// Thread function for 5R6G5B framebuffer copy
+static void* copy_FrameBuffer5R6G5B_thread(void* arg) {
+    ThreadData *data = (ThreadData*)arg;
+    ZBuffer *zb = data->zb;
+    uint16_t *p1 = (uint16_t*)(data->buf + data->startY * data->linesize);  // Use uint16_t for 16-bit RGB buffer
+    PIXEL *q = (PIXEL*)((uint8_t*)zb->pbuf + data->startY * zb->linesize);  // Pointer to ZBuffer's pixel data
 
-/* XXX: not optimized */
-void ZB_copyFrameBuffer5R6G5B(ZBuffer *zb, void *buf, int linesize) {
-#ifdef __ARM_NEON__
-    asm volatile (
-        "blu .req d0\n"
-        "grn .req d1\n"
-        "red .req d2\n"
-        "alp .req d3\n"
-        "gb .req grn\n"
-        "rg .req red\n"
-
-        "pld [%1]\n"
-        // y = 0
-        "mov r0, #0\n"
-        ".outer:\n"
-            // n = zb->xsize >> 2;
-            "mov r1, %3\n"
-            // p = p1
-            "mov r2, %0\n"
-            // this could be faster if X were divisible by 8, but unfortunately that's not always the case :(
-            ".inner:\n"
-                // load zb->pbuf; zb->pbuf += 32
-                "vld4.8 {blu, grn, red, alp}, [%1]!\n"
-                "pld [%1, #32]\n"
-                // n -= 2
-                "sub r1, r1, #2\n"
-
-                // shuffle pixels
-                "vsri.8 red, grn, #5\n"
-                "vshl.u8 gb, grn, #3\n"
-                "vsri.8 gb, blu, #3\n"
-
-                // memcpy(p, {gb, rg}, 32)
-                "vst2.8 {gb, rg}, [r2]\n"
-
-                // p += 16
-                "add r2, r2, #16\n"
-                "cmp r1, #0\n"
-                "bgt .inner\n"
-
-            // buf += linesize
-            "add %0, %0, %4\n"
-            // y += 1
-            "add r0, r0, #1\n"
-            // if y < zb->ysize; goto .outer
-            "cmp r0, %2\n"
-            "blt .outer\n"
-
-        :
-        : "r"(buf), "r"(zb->pbuf), "r"(zb->ysize), "r"(zb->xsize >> 2), "r"(linesize)
-        : "r0", "r1", "r2", "d0", "d1", "d2", "d3"
-    );
-#else
-    PIXEL *q = zb->pbuf;
-    unsigned short *p, *p1 = (unsigned short *) buf;
-    for (int y = 0; y < zb->ysize; y++) {
-        int n = zb->xsize >> 2;
-        p = p1;
-        do {
-            p[0] = RGB32_TO_RGB16(q[0]);
-            p[1] = RGB32_TO_RGB16(q[1]);
-            p[2] = RGB32_TO_RGB16(q[2]);
-            p[3] = RGB32_TO_RGB16(q[3]);
-            q += 4;
-            p += 4;
-        } while (--n > 0);
-        p1 = (unsigned short *)((char *)p1 + linesize);
+    for (int y = data->startY; y < data->endY; y++) {
+        for (int x = 0; x < zb->xsize; x++) {
+            p1[x] = RGB32_TO_RGB16(q[x]);  // Convert from RGB32 to RGB16
+        }
+        p1 = (uint16_t*)((uint8_t*)p1 + data->linesize);  // Move to the next line in the destination buffer
+        q += zb->xsize;  // Move to the next line in the source buffer
     }
-#endif
+
+    return NULL;
+}
+
+void ZB_copy_FrameBuffer5R6G5B(ZBuffer *zb, void *buf, int linesize) {
+    int numCores = sysconf(_SC_NPROCESSORS_ONLN);  // Get the number of CPU cores
+    int numThreads = numCores - 1;  // Leave 1 core for the main thread
+
+    if (numThreads <= 0) {
+        numThreads = 1;  // Use at least 1 thread
+    }
+
+    pthread_t threads[numThreads];
+    ThreadData threadData[numThreads];
+
+    int linesPerThread = zb->ysize / numThreads;  // Distribute lines evenly across threads
+    int remainingLines = zb->ysize % numThreads;  // Handle remaining lines
+
+    // Launch threads
+    for (int i = 0; i < numThreads; i++) {
+        threadData[i].zb = zb;
+        threadData[i].buf = (uint8_t*)buf;
+        threadData[i].linesize = linesize;
+        threadData[i].startY = i * linesPerThread;
+        threadData[i].endY = threadData[i].startY + linesPerThread;
+
+        if (i == numThreads - 1) {
+            threadData[i].endY += remainingLines;  // Last thread handles extra lines
+        }
+
+        pthread_create(&threads[i], NULL, copy_FrameBuffer5R6G5B_thread, &threadData[i]);
+    }
+
+    // Join threads
+    for (int i = 0; i < numThreads; i++) {
+        pthread_join(threads[i], NULL);
+    }
 }
 
 void ZB_copyFrameBuffer(ZBuffer * zb, void *buf, int linesize) {
     switch (zb->mode) {
         case ZB_MODE_5R6G5B:
-            ZB_copyFrameBuffer5R6G5B(zb, buf, linesize);
+            ZB_copy_FrameBuffer5R6G5B(zb, buf, linesize);
             break;
         case ZB_MODE_RGBA:
-            ZB_copyBuffer(zb, buf, linesize);
+            ZB_copy_FrameBufferRGBA(zb, buf, linesize);
             break;
         default:
-            assert(0);
+            assert(0);  // Invalid mode
     }
 }
 

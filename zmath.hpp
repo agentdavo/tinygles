@@ -27,18 +27,47 @@ namespace fp
      {
           tGLfixed X, Y, Z;
 
-          // Constructor for V3
-          V3(tGLfixed x = 0, tGLfixed y = 0, tGLfixed z = 0)
-              : X(x), Y(y), Z(z) {}
+          // Default constructor
+          V3() : X(0), Y(0), Z(0) {}
+
+          // Parameterized constructor
+          V3(tGLfixed x, tGLfixed y, tGLfixed z) : X(x), Y(y), Z(z) {}
+
+          // Assignment operator
+          V3 &operator=(const V3 &other)
+          {
+               if (this != &other)
+               {
+                    X = other.X;
+                    Y = other.Y;
+                    Z = other.Z;
+               }
+               return *this;
+          }
      };
 
      struct alignas(16) V4
      {
           tGLfixed X, Y, Z, W;
 
-          // Constructor for V4
-          V4(tGLfixed x = 0, tGLfixed y = 0, tGLfixed z = 0, tGLfixed w = 0)
-              : X(x), Y(y), Z(z), W(w) {}
+          // Default constructor
+          V4() : X(0), Y(0), Z(0), W(0) {}
+
+          // Parameterized constructor
+          V4(tGLfixed x, tGLfixed y, tGLfixed z, tGLfixed w) : X(x), Y(y), Z(z), W(w) {}
+
+          // Assignment operator
+          V4 &operator=(const V4 &other)
+          {
+               if (this != &other)
+               {
+                    X = other.X;
+                    Y = other.Y;
+                    Z = other.Z;
+                    W = other.W;
+               }
+               return *this;
+          }
      };
 
      /* Function declarations */
@@ -63,5 +92,7 @@ namespace fp
      V4 gl_V4_New(tGLfixed x, tGLfixed y, tGLfixed z, tGLfixed w);
 
      int gl_Matrix_Inv(tGLfixed *r, tGLfixed *m, int n);
+
+     void V4_to_V3(V3 &v3, const V4 &v4);
 
 } // namespace fp

@@ -24,14 +24,13 @@ void glDepthMask(GLboolean flag) {
     fprintf(stderr, "STUB: glDepthMask()\n");
 }
 
-// todo:
-//void glLineWidth(tGLfixed width) {
-//    fprintf(stderr, "STUB: glLineWidth\n");
-//}
+void glLineWidth(tGLfixed width) {
+    fprintf(stderr, "STUB: glLineWidth\n");
+}
 
-//void glPointSize(tGLfixed size) {
-//    fprintf(stderr, "STUB: glPointSize\n");
-//}
+void glPointSize(tGLfixed size) {
+    fprintf(stderr, "STUB: glPointSize\n");
+}
 
 void glFinish() {
     fprintf(stderr, "STUB: glFinish()\n");
